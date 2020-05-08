@@ -10,6 +10,7 @@ import com.jalves.curso.boot.DAO.DepartamentoDao;
 import com.jalves.curso.boot.domain.Departamento;
 
 @Service
+@Transactional(readOnly = false)
 public class DepartamentoServiceImpl implements DepartamentoService {
 
 	@Autowired
@@ -40,6 +41,14 @@ public class DepartamentoServiceImpl implements DepartamentoService {
 	@Transactional(readOnly = true)
 	public List<Departamento> buscarTodos() {
 		return departamentoDao.findAll();
+	}
+
+	@Override
+	public boolean departamentoTemCargo(Long id) {
+		if (buscarPorId(id).getCargos().isEmpty()) {
+			return false;
+		}
+		return false;
 	}
 
 }

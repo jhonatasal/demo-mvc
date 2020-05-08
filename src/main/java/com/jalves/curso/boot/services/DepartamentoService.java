@@ -5,6 +5,8 @@ import java.util.List;
 import com.jalves.curso.boot.domain.Departamento;
 
 public interface DepartamentoService {
+	boolean departamentoTemCargo(Long id);
+
 	void salvar(Departamento departamento);
 
 	void editar(Departamento departamento);
